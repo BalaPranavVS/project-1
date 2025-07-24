@@ -1,81 +1,36 @@
-:root {
-  --bg-color: #f4f4f4;
-  --text-color: #333;
-  --container-bg: #f8f8f8;
-  --input-bg: #ffffff;
-  --input-border: #ccc;
-  --header-bg: rgba(17, 22, 67);
-  --logo-size: 40pt;
-  --title-size: 15pt;
-  --btn-bg: #0066cc;
-  --btn-hover: #004999;
-  --register-btn-bg: #007bff;
-  --register-btn-hover: #0056b3;
-  --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  --transition-speed: 0.3s;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-[data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #f4f4f4;
-  --container-bg: #1e1e1ecc;
-  --input-bg: #2c2c2c;
-  --input-border: #555;
-  --header-bg: rgba(34, 38, 80);
-  --btn-bg: #3399ff;
-  --btn-hover: #1d78c1;
-  --register-btn-bg: #3399ff;
-  --register-btn-hover: #2373c9;
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
 }
 
-/* Toggle Switch - global so it works on both pages */
-.theme-toggle {
-  width: 60px;
-  height: 30px;
-  position: relative;
-  display: inline-block;
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
 }
 
-.theme-toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+/* Loading animation */
+.loading-spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600;
 }
 
-.theme-toggle .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
+/* Glassmorphism effect */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
-.theme-toggle .slider:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-.theme-toggle input:checked + .slider {
-  background-color: var(--btn-bg);
-}
-
-.theme-toggle input:checked + .slider:before {
-  transform: translateX(30px);
+.glass-dark {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 24, 39, 0.75);
+  border: 1px solid rgba(75, 85, 99, 0.3);
 }
