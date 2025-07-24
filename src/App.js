@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import { useEffect, useState } from "react";
 import Home from "./pages/Home/Home";
-import Login from "./pages/Login/login";
+import Login from "./pages/Login/Login";
 
 function App() {
   const [theme, setTheme] = useState(() => {

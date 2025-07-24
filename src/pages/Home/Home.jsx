@@ -1,46 +1,51 @@
-import "./Home.css";
-import axios from "axios";
-import Header from "./Header";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Dashboard from "./components/dashbord";
-import Dropdown from "./components/dropdown";
-import Mark from "./components/mark";
-
-const options = ['React', 'Vue', 'Angular'];
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Header from "../../components/layout/Header";
+import Dashboard from "../../components/dashboard/Dashboard";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 
 function Home({ theme, changeTheme }) {
   const navigate = useNavigate();
-  const [user, setUser] = useState();
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get("http://localhost:5000/me", { withCredentials: true })
       .then((res) => {
         setUser(res.data.user);
+        setLoading(false);
       })
       .catch(() => {
         navigate("/login");
       });
   }, [navigate]);
 
-  return (
-    <div className="home">
-      <Header theme={theme} changeTheme={changeTheme} />
-      <main className="home-main">
-        <Dashboard user={user} />
-      </main>
-      <Dropdown options={options} value={selectedOption} onChange={handleChange}/>
-      <div className="Assesments">
-        {selectedOption ? <Mark selectedRoadMap={selectedOption}/>:null} 
+  if (loading) {
+    return (
+      <div className="app">
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          height: '100vh' 
+        }}>
+          <LoadingSpinner size="xl" />
+        </div>
       </div>
+    );
+  }
+
+  return (
+    <div className="app">
+      <Header theme={theme} changeTheme={changeTheme} user={user} />
+      <main className="main-content">
+        <div className="container">
+          <Dashboard user={user} />
+        </div>
+      </main>
     </div>
   );
 }
 
 export default Home;
-
