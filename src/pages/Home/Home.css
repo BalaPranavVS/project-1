@@ -1,0 +1,118 @@
+/* HEADER */
+.app-header {
+  background: var(--container-bg);
+  color: var(--text-color);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--input-border);
+  box-shadow: var(--card-shadow);
+  transition: background var(--transition-speed), color var(--transition-speed);
+  animation: fadeInDown 0.5s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.Header-Logo {
+  height: 48px;
+  border-radius: 12%;
+  transition: transform 0.2s ease;
+}
+.Header-Logo:hover {
+  transform: scale(1.08);
+}
+
+.college-name {
+  font-size: 20pt;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+/* Right Side Buttons */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logout-btn {
+  padding: 10px 15px;
+  margin-left: 10px;
+  letter-spacing: 0cap;
+  border: none;
+  background-color: var(--btn-bg);
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background var(--transition-speed), transform var(--transition-speed);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+.logout-btn:hover {
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+/* HOME CONTENT */
+.home-main {
+  padding: 32px;
+  margin: 32px auto;
+  max-width: 800px;
+  background: var(--container-bg);
+  color: var(--text-color);
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  transition: background var(--transition-speed), color var(--transition-speed);
+  text-align: center;
+}
+
+.home-main h2 {
+  font-size: 28pt;
+  margin-bottom: 16px;
+  color: var(--text-color);
+}
+
+.home-main p {
+  font-size: 14pt;
+  color: var(--text-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .college-name {
+    font-size: 16pt;
+  }
+
+  .home-main {
+    margin: 16px;
+    padding: 24px;
+  }
+}

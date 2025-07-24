@@ -1,0 +1,123 @@
+
+
+/* Body and overall layout */
+body,
+.login {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.login header {
+  background-color: var(--header-bg);
+  padding: 3px 24px 12px 24px;
+  height: 70pt;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.login .Header-Logo {
+  border-radius: 10%;
+  height: var(--logo-size);
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.login .college-name {
+  font-size: var(--title-size);
+  color: #ccc;
+  text-align: left;
+}
+
+
+
+/* Form Container */
+.login .loginpanel {
+  max-width: 350px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--container-bg);
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Form Layout */
+.login .loginpanel form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login .loginpanel label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Inputs */
+.login .loginpanel input[type="text"],
+.login .loginpanel input[type="password"] {
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login .loginpanel input:focus {
+  outline: none;
+  border-color: var(--register-btn-bg);
+}
+
+/* Buttons */
+.login .submitButton {
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 100px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--btn-bg);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.login .submitButton:hover {
+  background-color: var(--btn-hover);
+}
+
+.login .submitButton.register {
+  background-color: var(--register-btn-bg);
+}
+
+.login .submitButton.register:hover {
+  background-color: var(--register-btn-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 12px;
+  }
+
+  .login .college-name {
+    font-size: 13pt;
+    text-emphasis: none;
+  }
+
+}

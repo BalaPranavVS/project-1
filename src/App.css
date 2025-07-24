@@ -1,0 +1,81 @@
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --container-bg: #f8f8f8;
+  --input-bg: #ffffff;
+  --input-border: #ccc;
+  --header-bg: rgba(17, 22, 67);
+  --logo-size: 40pt;
+  --title-size: 15pt;
+  --btn-bg: #0066cc;
+  --btn-hover: #004999;
+  --register-btn-bg: #007bff;
+  --register-btn-hover: #0056b3;
+  --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f4f4f4;
+  --container-bg: #1e1e1ecc;
+  --input-bg: #2c2c2c;
+  --input-border: #555;
+  --header-bg: rgba(34, 38, 80);
+  --btn-bg: #3399ff;
+  --btn-hover: #1d78c1;
+  --register-btn-bg: #3399ff;
+  --register-btn-hover: #2373c9;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Toggle Switch - global so it works on both pages */
+.theme-toggle {
+  width: 60px;
+  height: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.theme-toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.theme-toggle input:checked + .slider {
+  background-color: var(--btn-bg);
+}
+
+.theme-toggle input:checked + .slider:before {
+  transform: translateX(30px);
+}
